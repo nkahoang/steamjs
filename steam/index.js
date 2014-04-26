@@ -80,7 +80,7 @@
                     return e(c***REMOVED***;
                 ***REMOVED*** else {
                     if ("function" === typeof callback***REMOVED*** {
-                      return callback("Cannot find profile", null***REMOVED***;
+                      return callback("Cannot find Steam profile for specified ID: " + user_id, null***REMOVED***;
                   ***REMOVED***
                 ***REMOVED***
               ***REMOVED***

@@ -69,7 +69,7 @@ class SteamClient
                   e(c***REMOVED***
                 else
                   if "function" == typeof(callback***REMOVED***
-                    callback("Cannot find profile", null***REMOVED***
+                    callback("Cannot find Steam profile for specified ID: #{user_id}", null***REMOVED***
             else
               if "function" == typeof(callback***REMOVED***
                 callback(err, null***REMOVED***
