@@ -15,6 +15,7 @@ block content
                         input(type="text", placeholder="Enter any Steam ID / Steam 64 ID / Custom profile", data-bind="value: steam_id, events: {keyup: steam_id_keypress}").form-control
                         span.input-group-btn
                             button.btn.btn-default(data-bind="events: {click: getDetails_clicked}") Get details
+                    #err_message
 
         br
         .container-fluid
@@ -23,7 +24,12 @@ block content
                 .ajax_loader#ajax_loader
                     img(src="images/ajax.gif")
                     br
-                    div Getting user data from Steam...
+                    br
+                    div.
+                        Getting user data from Steam...
+                        <br>
+                        This may take a while
+
 block userscript
     script(type='text/x-kendo-template')#app_image_template.
         <a class='app_img' href='http://store.steampowered.com/app/#:_id#/'><img src="#= header_image#" alt="#: name#" /></a>
@@ -36,20 +42,22 @@ block userscript
             </small>
         </div>
     script(type='text/x-kendo-template')#app_metacritic_template.
+        <div class="t-center">
         # if ("undefined" != typeof(metacritic)) { #
-            <a href='#:metacritic.url#' target='_blank'>#: metacritic.score # <span class="glyphicon glyphicon-link"></span></a>
+            <a class='k-button' href='#:metacritic.url#' target='_blank'>#: metacritic.score # <span class="glyphicon glyphicon-link"></span></a>
         # } else { #
             <span class='na'>N/A</span>
         # } #
+        </div>
     script(type='text/x-kendo-template')#app_developers_template.
-        # if ("undefined" != typeof(developers)) { #
-            #: developers.join(", ") #
+        # if (developers_human) { #
+            #: developers_human #
         # } else { #
             <span class='na'>N/A</span>
         # } #
     script(type='text/x-kendo-template')#app_publishers_template.
-        # if ("undefined" != typeof(publishers)) { #
-            #: publishers.join(", ") #
+        # if (publishers_human) { #
+        #: publishers_human #
         # } else { #
             <span class='na'>N/A</span>
         # } #
@@ -66,6 +74,9 @@ block userscript
             }
             if (p > 0) {
                 ##: p # min #
+            }
+            if (playtime_forever > 0) {
+                #<div class='text-muted'>Raw time: #:playtime_forever# (mins)</div>#
             }
         } else { #
             Not played

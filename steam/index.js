@@ -80,7 +80,7 @@
                     return e(c);
                   } else {
                     if ("function" === typeof callback) {
-                      return callback("Cannot find profile", null);
+                      return callback("Cannot find Steam profile for specified ID: " + user_id, null);
                     }
                   }
                 }

@@ -69,7 +69,7 @@ class SteamClient
                   e(c)
                 else
                   if "function" == typeof(callback)
-                    callback("Cannot find profile", null)
+                    callback("Cannot find Steam profile for specified ID: #{user_id}", null)
             else
               if "function" == typeof(callback)
                 callback(err, null)
