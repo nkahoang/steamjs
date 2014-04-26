@@ -1,0 +1,93 @@
+themeColor = #196167
+themeDarkColor = #004947
+transition
+  -webkit-transition arguments
+  -moz-transition arguments
+  -ms-transition arguments
+  -o-transition arguments
+  transition arguments
+box-shadow
+  -webkit-box-shadow arguments
+  -moz-box-shadow arguments
+  -ms-box-shadow arguments
+  -o-box-shadow arguments
+  box-shadow arguments
+border-radius
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  -ms-border-radius arguments
+  -o-border-radius arguments
+  border-radius arguments
+html
+  position relative;
+  min-height 100%;
+body
+  padding: 50px 30px
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif*/
+  background url('/images/bg.gif')
+a
+  color: themeColor
+
+.p-relative
+  position relative
+
+.t-center
+  text-align center
+
+.container-fluid
+  background-color #000
+  background rgba(0, 0, 0, 0.85)
+  box-shadow 0 0 5px rgba(0, 0, 0, 0.85)
+  padding-top 8px
+  padding-bottom 8px
+
+.btn
+  transition background 0.2s
+  background-color themeColor
+  border 1px solid themeColor
+  &:hover
+    background-color themeDarkColor
+    border-color themeDarkColor
+
+.ajax_loader
+  text-align center
+  width 230px
+  display inline-block
+  left 50%
+  top 50%
+  margin-top -20px
+  margin-left -115px
+  position fixed
+  display none
+  background-color #000000
+  background rgba(0, 0, 0, 0.85)
+  padding 10px
+  z-index 1000
+.app_img
+  width 150px
+  height 70px
+  display block
+  img
+    width 150px
+.app_details
+  .name
+    text-decoration none
+    font-weight bold
+.na
+  font-style italic
+  color #666
+
+body
+  margin-bottom: 84px
+
+#footer
+  background-color #000
+  width 100%
+  left 0
+  bottom 10px
+  height 74px
+  position absolute
+  margin-top 20px
+  .container
+    padding-top 10px
+    padding-left 10px

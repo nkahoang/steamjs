@@ -1,0 +1,73 @@
+extends layout
+
+block content
+    div#main
+        .container-fluid.jumbotron
+            .container
+                .col-md-3.t-center
+                    img(src='images/js_logo.png', alt='SteamJS')
+                .col-md-9
+                    h1 Steam
+                      strong JS
+                    p.
+                      Query your Steam game account details, built on Node.js, Redis and MongoDB
+                    .input-group
+                        input(type="text", placeholder="Enter any Steam ID / Steam 64 ID / Custom profile", data-bind="value: steam_id, events: {keyup: steam_id_keypress}").form-control
+                        span.input-group-btn
+                            button.btn.btn-default(data-bind="events: {click: getDetails_clicked}") Get details
+
+        br
+        .container-fluid
+            .p-relative
+                div#games_grid
+                .ajax_loader#ajax_loader
+                    img(src="images/ajax.gif")
+                    br
+                    div Getting user data from Steam...
+block userscript
+    script(type='text/x-kendo-template')#app_image_template.
+        <a class='app_img' href='http://store.steampowered.com/app/#:_id#/'><img src="#= header_image#" alt="#: name#" /></a>
+    script(type='text/x-kendo-template')#app_name_template.
+        <div class="app_details">
+            <a class="name" href='http://store.steampowered.com/app/#:_id#/'>#= name#</a><br/>
+            <small>
+                Steam app ID: <strong>#: _id#</strong><br/>
+                <a class='k-button' href='steam://install/#:_id#'>Install game now</a>
+            </small>
+        </div>
+    script(type='text/x-kendo-template')#app_metacritic_template.
+        # if ("undefined" != typeof(metacritic)) { #
+            <a href='#:metacritic.url#' target='_blank'>#: metacritic.score # <span class="glyphicon glyphicon-link"></span></a>
+        # } else { #
+            <span class='na'>N/A</span>
+        # } #
+    script(type='text/x-kendo-template')#app_developers_template.
+        # if ("undefined" != typeof(developers)) { #
+            #: developers.join(", ") #
+        # } else { #
+            <span class='na'>N/A</span>
+        # } #
+    script(type='text/x-kendo-template')#app_publishers_template.
+        # if ("undefined" != typeof(publishers)) { #
+            #: publishers.join(", ") #
+        # } else { #
+            <span class='na'>N/A</span>
+        # } #
+    script(type='text/x-kendo-template')#app_playtime_template.
+        # if ("undefined" != typeof(playtime_forever) && playtime_forever > 0) {
+            p = playtime_forever
+            if (p >= 1440) {
+                ##: parseInt(p/1440) # days #
+                p = p % 1440
+            }
+            if (p >= 60) {
+                ##: parseInt(p/60) # hours #
+                p = p % 60
+            }
+            if (p > 0) {
+                ##: p # min #
+            }
+        } else { #
+            Not played
+        # } #
+    script(src="javascripts/main.js")
