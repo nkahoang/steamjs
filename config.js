@@ -4,19 +4,25 @@
 
   ***REMOVED***;
 
-  config.redis_host = 'pub-redis-11414.us-east-1-3.3.ec2.garantiadata.com';
+  config.redis_host = '';
 
   config.redis_port = 11414;
 
-  config.redis_password = 'redisSteam';
+  config.redis_password = '';
 
-  config.mongo_db_host = 'steam_node:steamNode@ds037478.mongolab.com:37478';
+  config.redis_use_ENV = true;
 
-  config.mongo_db_name = 'steamdb';
+  config.mongo_db_host = '';
 
-  config.steam_web_api_key = 'F2AB1C25BD33F9E4E3F743E05490CE7C';
+  config.mongo_db_name = '';
 
-  config.steam_web_api_domain = 'nkahnt.com';
+  config.mongo_use_ENV = true;
+
+  config.steam_web_api_key = '';
+
+  config.steam_web_api_domain = '';
+
+  config.steam_web_api_ENV = true;
 
 ***REMOVED***
 
