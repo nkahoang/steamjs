@@ -26,12 +26,12 @@ html {
 body {
   padding: 50px 30px;
 /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif*/
-  background: url("/images/bg.gif"***REMOVED***;
+  background: url("/images/bg.gif");
 }
-@media screen and (max-width: 1024px***REMOVED*** {
+@media screen and (max-width: 1024px) {
   body {
     padding: 0;
-***REMOVED***
+  }
 }
 a {
   color: #196167;
@@ -44,8 +44,8 @@ a {
 }
 .container-fluid {
   background-color: #000;
-  background: rgba(0,0,0,0.85***REMOVED***;
-  box-shadow: 0 0 5px rgba(0,0,0,0.85***REMOVED***;
+  background: rgba(0,0,0,0.85);
+  box-shadow: 0 0 5px rgba(0,0,0,0.85);
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -69,7 +69,7 @@ a {
   position: fixed;
   display: none;
   background-color: #000;
-  background: rgba(0,0,0,0.85***REMOVED***;
+  background: rgba(0,0,0,0.85);
   padding: 10px;
   z-index: 1000;
 }

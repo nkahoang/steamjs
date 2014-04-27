@@ -5,16 +5,16 @@ block content
         .container-fluid.jumbotron
             .container
                 .col-md-3.t-center
-                    img(src='images/js_logo.png', alt='SteamJS'***REMOVED***
+                    img(src='images/js_logo.png', alt='SteamJS')
                 .col-md-9
                     h1 Steam
                       strong JS
                     p.
                       Query your Steam game account details, built on Node.js, Redis and MongoDB
                     .input-group
-                        input(type="text", placeholder="Enter any Steam ID / Steam 64 ID / Custom profile", data-bind="value: steam_id, events: {keyup: steam_id_keypress}"***REMOVED***.form-control
+                        input(type="text", placeholder="Enter any Steam ID / Steam 64 ID / Custom profile", data-bind="value: steam_id, events: {keyup: steam_id_keypress}").form-control
                         span.input-group-btn
-                            button.btn.btn-default(data-bind="events: {click: getDetails_clicked}"***REMOVED*** Get details
+                            button.btn.btn-default(data-bind="events: {click: getDetails_clicked}") Get details
                     #err_message
 
         br
@@ -22,7 +22,7 @@ block content
             .p-relative
                 div#games_grid
                 .ajax_loader#ajax_loader
-                    img(src="images/ajax.gif"***REMOVED***
+                    img(src="images/ajax.gif")
                     br
                     br
                     div.
@@ -31,9 +31,9 @@ block content
                         This may take a while
 
 block userscript
-    script(type='text/x-kendo-template'***REMOVED***#app_image_template.
+    script(type='text/x-kendo-template')#app_image_template.
         <a class='app_img' href='http://store.steampowered.com/app/#:_id#/'><img src="#= header_image#" alt="#: name#" /></a>
-    script(type='text/x-kendo-template'***REMOVED***#app_name_template.
+    script(type='text/x-kendo-template')#app_name_template.
         <div class="app_details">
             <a class="name" href='http://store.steampowered.com/app/#:_id#/'>#= name#</a><br/>
             <small>
@@ -41,44 +41,44 @@ block userscript
                 <a class='k-button' href='steam://install/#:_id#'>Install game now</a>
             </small>
         </div>
-    script(type='text/x-kendo-template'***REMOVED***#app_metacritic_template.
+    script(type='text/x-kendo-template')#app_metacritic_template.
         <div class="t-center">
-        # if ("undefined" != typeof(metacritic***REMOVED******REMOVED*** { #
+        # if ("undefined" != typeof(metacritic)) { #
             <a class='k-button' href='#:metacritic.url#' target='_blank'>#: metacritic.score # <span class="glyphicon glyphicon-link"></span></a>
         # } else { #
             <span class='na'>N/A</span>
         # } #
         </div>
-    script(type='text/x-kendo-template'***REMOVED***#app_developers_template.
-        # if (developers_human***REMOVED*** { #
+    script(type='text/x-kendo-template')#app_developers_template.
+        # if (developers_human) { #
             #: developers_human #
         # } else { #
             <span class='na'>N/A</span>
         # } #
-    script(type='text/x-kendo-template'***REMOVED***#app_publishers_template.
-        # if (publishers_human***REMOVED*** { #
+    script(type='text/x-kendo-template')#app_publishers_template.
+        # if (publishers_human) { #
         #: publishers_human #
         # } else { #
             <span class='na'>N/A</span>
         # } #
-    script(type='text/x-kendo-template'***REMOVED***#app_playtime_template.
-        # if ("undefined" != typeof(playtime_forever***REMOVED*** && playtime_forever > 0***REMOVED*** {
+    script(type='text/x-kendo-template')#app_playtime_template.
+        # if ("undefined" != typeof(playtime_forever) && playtime_forever > 0) {
             p = playtime_forever
-            if (p >= 1440***REMOVED*** {
-                ##: parseInt(p/1440***REMOVED*** # days #
+            if (p >= 1440) {
+                ##: parseInt(p/1440) # days #
                 p = p % 1440
-          ***REMOVED***
-            if (p >= 60***REMOVED*** {
-                ##: parseInt(p/60***REMOVED*** # hours #
+            }
+            if (p >= 60) {
+                ##: parseInt(p/60) # hours #
                 p = p % 60
-          ***REMOVED***
-            if (p > 0***REMOVED*** {
+            }
+            if (p > 0) {
                 ##: p # min #
-          ***REMOVED***
-            if (playtime_forever > 0***REMOVED*** {
-                #<div class='text-muted'>Raw time: #:playtime_forever# (mins***REMOVED***</div>#
-          ***REMOVED***
-      ***REMOVED*** else { #
+            }
+            if (playtime_forever > 0) {
+                #<div class='text-muted'>Raw time: #:playtime_forever# (mins)</div>#
+            }
+        } else { #
             Not played
         # } #
-    script(src="javascripts/main.js"***REMOVED***
+    script(src="javascripts/main.js")

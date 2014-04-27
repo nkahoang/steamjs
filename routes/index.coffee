@@ -1,3 +1,3 @@
-exports.index = (req, res***REMOVED*** ->
+exports.index = (req, res) ->
   res.render 'index',
               title: 'Steam on Node'

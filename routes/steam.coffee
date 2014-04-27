@@ -1,28 +1,28 @@
-exports.get = (req, res***REMOVED*** ->
-  steam = require("../steam"***REMOVED***
+exports.get = (req, res) ->
+  steam = require("../steam")
   id = req.params.id
-  if 'undefined' != typeof(id***REMOVED***
+  if 'undefined' != typeof(id)
     res.send id
   else
     res.send "all"
 
-exports.user_owned_games = (req, res***REMOVED*** ->
-  require("../steam"***REMOVED***(null, (err, steam***REMOVED***->
+exports.user_owned_games = (req, res) ->
+  require("../steam")(null, (err, steam)->
     id = if req.query.id then req.query.id else req.params.id
 
-    if 'undefined' == typeof(id***REMOVED***
+    if 'undefined' == typeof(id)
       res.json {success: false, message: "No ID specified"}
     else
-      steam.get_user_owned_games(id, (err, result***REMOVED***->
+      steam.get_user_owned_games(id, (err, result)->
         if err
           res.json {success: false, message: err}
         else
           res.json result
-      ***REMOVED***
-  ***REMOVED***
+      )
+  )
 
-exports.force_reset = (req, res***REMOVED*** ->
-  require("../steam"***REMOVED***(null, (err, steam***REMOVED***->
-    steam._get_app_list(***REMOVED***
+exports.force_reset = (req, res) ->
+  require("../steam")(null, (err, steam)->
+    steam._get_app_list()
     res.json {success: true}
-  ***REMOVED***
+  )

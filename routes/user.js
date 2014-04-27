@@ -3,6 +3,6 @@
  * GET users listing.
  */
 
-exports.list = function(req, res***REMOVED***{
-  res.send("respond with a resource"***REMOVED***;
+exports.list = function(req, res){
+  res.send("respond with a resource");
 };
