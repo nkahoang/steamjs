@@ -15,7 +15,11 @@
       s.mongo_client = require('mongodb'***REMOVED***.MongoClient;
       return s.mongo_client.connect("mongodb://" + opts.mongo_db_host + "/" + opts.mongo_db_name, function(err, db***REMOVED*** {
         var sClient;
-        console.dir("Mongo connected: ", err***REMOVED***;
+        if (err***REMOVED*** {
+          console.dir("Mongo connect error: ", err***REMOVED***;
+      ***REMOVED*** else {
+          console.log("Mongo connected"***REMOVED***;
+      ***REMOVED***
         s.mongo_db = db;
         sClient = new SteamClient(s.redis_client, s.mongo_db, s.opts***REMOVED***;
         if ("function" === typeof callback***REMOVED*** {

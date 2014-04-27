@@ -28,6 +28,11 @@ body {
 /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif*/
   background: url("/images/bg.gif"***REMOVED***;
 }
+@media screen and (max-width: 1024px***REMOVED*** {
+  body {
+    padding: 0;
+***REMOVED***
+}
 a {
   color: #196167;
 }

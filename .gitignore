@@ -1,1 +1,4 @@
 **/assets/**
+config.coffee
+config.js
+config.sample.js

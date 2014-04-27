@@ -9,7 +9,10 @@ module.exports = (opts, callback***REMOVED***->
     console.log "Redis connected"
     s.mongo_client = require('mongodb'***REMOVED***.MongoClient
     s.mongo_client.connect("mongodb://#{opts.mongo_db_host}/#{opts.mongo_db_name}", (err, db***REMOVED***->
-      console.dir "Mongo connected: ", err
+      if err
+        console.dir "Mongo connect error: ", err
+      else
+        console.log "Mongo connected"
       s.mongo_db = db
       sClient = new SteamClient s.redis_client, s.mongo_db, s.opts
       if "function" == typeof(callback***REMOVED***

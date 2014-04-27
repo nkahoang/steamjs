@@ -6,29 +6,23 @@
 ***REMOVED***
 ***REMOVED***
 
-#app.set('redis_host', 'pub-redis-11414.us-east-1-3.3.ec2.garantiadata.com'***REMOVED***
-#app.set('redis_port', 11414***REMOVED***
-#app.set('redis_password', 'redisSteam'***REMOVED***
-#app.set('redis_host', '127.0.0.1'***REMOVED***
-#app.set('redis_port', 6379***REMOVED***
-#app.set('redis_password', null***REMOVED***
+***REMOVED***
 
 ***REMOVED***
-  redis_host: 'pub-redis-11414.us-east-1-3.3.ec2.garantiadata.com'
-  redis_port: 11414
-  redis_password: 'redisSteam'
-  #mongo_db_host: '192.168.1.118:27017'
-  mongo_db_host: 'steam_node:steamNode@ds037478.mongolab.com:37478'
-  mongo_db_name: 'steamdb'
-  steam_web_api_key: 'F2AB1C25BD33F9E4E3F743E05490CE7C'
-  steam_web_api_domain: 'nkahnt.com'
-  steam_web_api_user_api: 'http://api.steampowered.com/IPlayerService/'
-  steam_web_api_custom_url: 'http://steamcommunity.com/id/'
-  steam_web_api_id_url: 'http://steamcommunity.com/profiles/'
-  steam_web_api_64_url: 'http://steamcommunity.com/profiles/'
-  steam_app_cache_validity: 3600
-  steam_user_app_cache_validity: 600
-  n_of_app_in_query_batch: 250
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 
 #console.dir "A"
