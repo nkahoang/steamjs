@@ -1,23 +1,19 @@
 config = {}
 
 # Redis host, port and AUTH details to cache Steam IDs list, cache user query, etc
-
-config.redis_host = ''
-config.redis_port = 11414
-config.redis_password = '' # null if there is no password
-config.redis_use_ENV = true #if true, use ENV instead of config file
+config.redis_host = process.env.REDIS_HOST
+config.redis_port = process.env.REDIS_PORT
+config.redis_password = process.env.REDIS_PASSWORD # null if there is no password
 
 # Mongo connection string
 # Format: db_user:db_pass@host:port
-config.mongo_db_host = ''
-config.mongo_db_name = '' #database name
-config.mongo_use_ENV = true #if true, use ENV instead of config file
+config.mongo_db_host = process.env.MONGO_DB_HOST
+config.mongo_db_name = process.env.MONGO_DB_NAME #database name
 
 # Steam web API key and domain, obtained by registering at
 # http://steamcommunity.com/dev/apikey
-config.steam_web_api_key= ''
-config.steam_web_api_domain= ''
-config.steam_web_api_ENV = true #if true, use ENV instead of config file
+config.steam_web_api_key = process.env.STEAM_WEB_API_KEY
+config.steam_web_api_domain = process.env.STEAM_WEB_API_DOMAIN
 
 # Steam REST API Endpoint, not likely to be changed
 config.steam_web_api_user_api= 'http://api.steampowered.com/IPlayerService/'

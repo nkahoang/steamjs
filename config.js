@@ -4,25 +4,19 @@
 
   config = {};
 
-  config.redis_host = '';
+  config.redis_host = process.env.REDIS_HOST;
 
-  config.redis_port = 11414;
+  config.redis_port = process.env.REDIS_PORT;
 
-  config.redis_password = '';
+  config.redis_password = process.env.REDIS_PASSWORD;
 
-  config.redis_use_ENV = true;
+  config.mongo_db_host = process.env.MONGO_DB_HOST;
 
-  config.mongo_db_host = '';
+  config.mongo_db_name = process.env.MONGO_DB_NAME;
 
-  config.mongo_db_name = '';
+  config.steam_web_api_key = process.env.STEAM_WEB_API_KEY;
 
-  config.mongo_use_ENV = true;
-
-  config.steam_web_api_key = '';
-
-  config.steam_web_api_domain = '';
-
-  config.steam_web_api_ENV = true;
+  config.steam_web_api_domain = process.env.STEAM_WEB_API_DOMAIN;
 
   config.steam_web_api_user_api = 'http://api.steampowered.com/IPlayerService/';
 
