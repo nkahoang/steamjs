@@ -9,13 +9,13 @@ config = require('./config')
 # all environments
 
 steam = require('./steam')(
-  redis_host: config.redis_host
-  redis_port: config.redis_port
-  redis_password: config.redis_password
-  mongo_db_host: config.mongo_db_host
-  mongo_db_name: config.mongo_db_name
-  steam_web_api_key: config.steam_web_api_key
-  steam_web_api_domain: config.steam_web_api_domain
+  redis_host: if config.redis_use_ENV then process.env.REDIS_HOST else config.redis_host
+  redis_port: if config.redis_use_ENV then process.env.REDIS_PORT else config.redis_port
+  redis_password: if config.redis_use_ENV then process.env.REDIS_PASSWORD else config.redis_password
+  mongo_db_host: if config.mongo_use_ENV then process.env.MONGO_DB_HOST else config.mongo_db_host
+  mongo_db_name: if config.mongo_use_ENV then process.env.MONGO_DB_NAME else config.mongo_db_name
+  steam_web_api_key: if config.steam_web_api_ENV then process.env.STEAM_WEB_API_KEY else config.steam_web_api_key
+  steam_web_api_domain: if config.steam_web_api_ENV then process.env.STEAM_WEB_API_DOMAIN else config.steam_web_api_domain
   steam_web_api_user_api: config.steam_web_api_user_api
   steam_web_api_custom_url: config.steam_web_api_custom_url
   steam_web_api_id_url: config.steam_web_api_id_url
