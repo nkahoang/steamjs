@@ -3,9 +3,11 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/public/javascripts/main.js" />
+        <item url="file://$PROJECT_DIR$/config.js" />
         <item url="file://$PROJECT_DIR$/app.js" />
-        <item url="file://$PROJECT_DIR$/steam/index.js" />
+        <item url="file://$PROJECT_DIR$/config.sample.js" />
         <item url="file://$PROJECT_DIR$/routes/steam.js" />
+        <item url="file://$PROJECT_DIR$/steam/index.js" />
         <item url="file://$PROJECT_DIR$/routes/index.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xml2js/83.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xml2js/incompat.js" />
@@ -14,9 +16,11 @@
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/public/javascripts/main.js" />
+      <root url="file://$PROJECT_DIR$/config.js" />
+      <root url="file://$PROJECT_DIR$/config.sample.js" />
       <root url="file://$PROJECT_DIR$/app.js" />
-      <root url="file://$PROJECT_DIR$/routes/steam.js" />
       <root url="file://$PROJECT_DIR$/steam/index.js" />
+      <root url="file://$PROJECT_DIR$/routes/steam.js" />
       <root url="file://$PROJECT_DIR$/routes/index.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xml2js/83.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xml2js/incompat.js" />
