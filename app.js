@@ -17,13 +17,13 @@
   ***REMOVED***;
 
   ***REMOVED***{
-    redis_host: config.redis_use_ENV ? process.env.REDIS_HOST : config.redis_host,
-    redis_port: config.redis_use_ENV ? process.env.REDIS_PORT : config.redis_port,
-    redis_password: config.redis_use_ENV ? process.env.REDIS_PASSWORD : config.redis_password,
-    mongo_db_host: config.mongo_use_ENV ? process.env.MONGO_DB_HOST : config.mongo_db_host,
-    mongo_db_name: config.mongo_use_ENV ? process.env.MONGO_DB_NAME : config.mongo_db_name,
-    steam_web_api_key: config.steam_web_api_ENV ? process.env.STEAM_WEB_API_KEY : config.steam_web_api_key,
-    steam_web_api_domain: config.steam_web_api_ENV ? process.env.STEAM_WEB_API_DOMAIN : config.steam_web_api_domain,
+  ***REMOVED***,
+  ***REMOVED***,
+  ***REMOVED***,
+  ***REMOVED***,
+  ***REMOVED***,
+  ***REMOVED***,
+  ***REMOVED***,
   ***REMOVED***,
   ***REMOVED***,
   ***REMOVED***,

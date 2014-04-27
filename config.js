@@ -4,25 +4,19 @@
 
   ***REMOVED***;
 
-  config.redis_host = '';
+  ***REMOVED***;
 
-  config.redis_port = 11414;
+  ***REMOVED***;
 
-  config.redis_password = '';
+***REMOVED***
 
-  config.redis_use_ENV = true;
+  ***REMOVED***;
 
-  config.mongo_db_host = '';
+***REMOVED***
 
-  config.mongo_db_name = '';
+  ***REMOVED***;
 
-  config.mongo_use_ENV = true;
-
-  config.steam_web_api_key = '';
-
-  config.steam_web_api_domain = '';
-
-  config.steam_web_api_ENV = true;
+  ***REMOVED***;
 
 ***REMOVED***
 
