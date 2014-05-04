@@ -295,6 +295,47 @@
     SteamClient.prototype._read_from_redis_list = function() {
       var s;
       s = this;
+      return s.redis_client.LRANGE(s.KEYS.STEAM_APP_IDS, 0, -1, function(e, app_list) {
+        var batch, i, _results;
+        batch = s.opts.n_of_app_in_query_batch;
+        i = 0;
+        _results = [];
+        while (i <= app_list.length) {
+          s.unirest.get("http://store.steampowered.com/api/appdetails/").query({
+            appids: app_list.slice(i, +(i + batch - 1) + 1 || 9e9).toString()
+          }).end((function(_this) {
+            return function(response) {
+              var app_id, id, item, sdata, _results1;
+              sdata = response.body;
+              _results1 = [];
+              for (app_id in sdata) {
+                item = sdata[app_id];
+                if (item.success && item.data) {
+                  id = parseInt(app_id);
+                  item.data._id = id;
+                  _results1.push(s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update({
+                    _id: parseInt(id)
+                  }, item.data, {
+                    upsert: true
+                  }, function(err, count) {
+                    return null;
+                  }));
+                } else {
+                  _results1.push(void 0);
+                }
+              }
+              return _results1;
+            };
+          })(this));
+          _results.push(i += batch);
+        }
+        return _results;
+      });
+    };
+
+    SteamClient.prototype._read_app_list = function() {
+      var s;
+      s = this;
       return s.redis_client.GET(s.KEYS.STEAM_APPLIST_RAW, function(e, app_list_raw) {
         var app, id_list, steam_apps, _i, _len, _ref;
         s.redis_client.DEL(s.KEYS.STEAM_APP_IDS);

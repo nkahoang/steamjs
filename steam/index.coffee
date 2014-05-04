@@ -1,4 +1,4 @@
-# STEAM API
+# STEAM WEB API
 module.exports = (opts, callback)->
   s = this
   if !s.redis_client || !s.mongo_client
@@ -212,6 +212,33 @@ class SteamClient
 
   #Convert the list of app to STEAM_APP_IDS redis list
   _read_from_redis_list: ()->
+    s = this
+    s.redis_client.LRANGE s.KEYS.STEAM_APP_IDS, 0, -1, (e, app_list)->
+      batch = s.opts.n_of_app_in_query_batch
+      i = 0
+
+      while (i <= app_list.length)
+        s.unirest.get("http://store.steampowered.com/api/appdetails/")
+        .query({
+              appids: app_list[i..i + batch - 1].toString()
+        })
+        .end((response) =>
+          sdata = response.body
+          for app_id of sdata
+            item = sdata[app_id]
+            if item.success && item.data
+              id = parseInt(app_id)
+              item.data._id = id
+              s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update {_id: parseInt(id)}, item.data, {upsert: true}, (err, count)->
+                return null
+#                if "undefined" != typeof(item.data.metacritic) && "undefined" != typeof(item.data.metacritic.score)
+#                  s.redis_client.ZADD s.KEYS.STEAM_METACRITIC_SCORES, item.data.metacritic.score, app_id
+#                s._push_obj_to_redis("STEAM.#{app_id}", "" , item.data)
+          )
+        i += batch
+
+  #Convert the list of app to STEAM_APP_IDS redis list
+  _read_app_list: ()->
     s = this
     s.redis_client.GET s.KEYS.STEAM_APPLIST_RAW, (e, app_list_raw) ->
       s.redis_client.DEL s.KEYS.STEAM_APP_IDS

@@ -30,7 +30,7 @@
 
   config.steam_user_app_cache_validity = 600;
 
-  config.n_of_app_in_query_batch = 500;
+  config.n_of_app_in_query_batch = 250;
 
   module.exports = config;
 
