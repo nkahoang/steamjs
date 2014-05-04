@@ -75,8 +75,12 @@
 
   app.get('/steam/force_reset', steam_route.force_reset);
 
+  app.get('/steam/get_missing_apps', steam_route.get_missing_apps);
+
   http.createServer(app).listen(app.get('port'), function() {
     return console.log('Express server listening on port ' + app.get('port'));
   });
 
 }).call(this);
+
+//# sourceMappingURL=app.map

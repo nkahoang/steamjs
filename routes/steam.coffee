@@ -23,6 +23,17 @@ exports.user_owned_games = (req, res) ->
 
 exports.force_reset = (req, res) ->
   require("../steam")(null, (err, steam)->
-    steam._get_app_list()
-    res.json {success: true}
+    steam._get_app_list null, (err, e) ->
+      if e.success
+        steam._read_from_redis_list()
+      res.json e
+  )
+
+exports.get_missing_apps = (req, res) ->
+  require("../steam")(null, (err, steam)->
+    steam._get_new_apps((err, e) ->
+      if e.success
+        steam._grab_data_from_steam(e.new_app_list)
+      res.json e
+    )
   )

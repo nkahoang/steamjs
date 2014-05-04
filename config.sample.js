@@ -30,8 +30,10 @@
 
   config.steam_user_app_cache_validity = 600;
 
-  config.n_of_app_in_query_batch = 250;
+  config.n_of_app_in_query_batch = 500;
 
   module.exports = config;
 
 }).call(this);
+
+//# sourceMappingURL=config.sample.map

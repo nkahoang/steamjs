@@ -37,11 +37,26 @@
 
   exports.force_reset = function(req, res) {
     return require("../steam")(null, function(err, steam) {
-      steam._get_app_list();
-      return res.json({
-        success: true
+      return steam._get_app_list(null, function(err, e) {
+        if (e.success) {
+          steam._read_from_redis_list();
+        }
+        return res.json(e);
+      });
+    });
+  };
+
+  exports.get_missing_apps = function(req, res) {
+    return require("../steam")(null, function(err, steam) {
+      return steam._get_new_apps(function(err, e) {
+        if (e.success) {
+          steam._grab_data_from_steam(e.new_app_list);
+        }
+        return res.json(e);
       });
     });
   };
 
 }).call(this);
+
+//# sourceMappingURL=steam.map

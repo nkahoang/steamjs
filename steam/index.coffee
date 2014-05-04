@@ -1,4 +1,4 @@
-
+# STEAM API
 module.exports = (opts, callback)->
   s = this
   if !s.redis_client || !s.mongo_client
@@ -115,6 +115,7 @@ class SteamClient
                     play_time[appIdInt] = game.playtime_forever
                   s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).find({
                       _id: {$in: app_ids}
+                      success: {$in: [null, true]}
                     },{
                       name: 1
                       website: 1
@@ -176,56 +177,104 @@ class SteamClient
       else
         this.redis_client.HSET root, prefix + ":" + key, val
 
-  _grab_data_from_steam: ()->
+  _grab_data_from_steam: (app_list)->
     s = this
-    s.redis_client.LRANGE s.KEYS.STEAM_APP_IDS, 0, -1, (e, app_list)->
-      batch = s.opts.n_of_app_in_query_batch
-      i = 0
-
-      while (i <= app_list.length)
-        s.unirest.get("http://store.steampowered.com/api/appdetails/")
-        .query({
-              appids: app_list[i..i + batch - 1].toString()
-        })
-        .end((response) =>
-          sdata = response.body
-          for app_id of sdata
-            item = sdata[app_id]
-            if item.success && item.data
-              id = parseInt(app_id)
-              item.data._id = id
-              s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update {_id: parseInt(id)}, item.data, {upsert: true}, (err, count)->
-                return null
-#                if "undefined" != typeof(item.data.metacritic) && "undefined" != typeof(item.data.metacritic.score)
-#                  s.redis_client.ZADD s.KEYS.STEAM_METACRITIC_SCORES, item.data.metacritic.score, app_id
-#                s._push_obj_to_redis("STEAM.#{app_id}", "" , item.data)
-          )
+    batch = s.opts.n_of_app_in_query_batch
+    i = 0
+    console.log "Querying",app_list.length,"apps"
+    _query = ()->
+      console.log "Querying steam from ",i," to ", (i+batch-1)
+      s.unirest.get("http://store.steampowered.com/api/appdetails/")
+      .query({
+            appids: app_list[i..i + batch - 1].toString()
+      })
+      .end((response) =>
+        console.log "Done querying"
         i += batch
+        if i <= app_list.length
+          _query()
+        else
+          console.log "Finish grabbing data"
+        sdata = response.body
+        for app_id of sdata
+          item = sdata[app_id]
+          if item.success
+            id = parseInt(app_id)
+            item.data._id = id
+            item.data.success = true
+            s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update {_id: parseInt(id)}, item.data, {upsert: true}, (err, count)->
+              return null
+          else
+            s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update {_id: parseInt(id)}, {_id: parseInt(app_id), success: false}, {upsert: true}, (err, count)->
+              return null
+      )
+    _query()
 
   #Convert the list of app to STEAM_APP_IDS redis list
-  _read_app_list: ()->
+  _read_from_redis_list: ()->
     s = this
     s.redis_client.GET s.KEYS.STEAM_APPLIST_RAW, (e, app_list_raw) ->
       s.redis_client.DEL s.KEYS.STEAM_APP_IDS
       steam_apps = (JSON.parse app_list_raw)
+      id_list = []
       for app in steam_apps.applist.apps.app
-        s.redis_client.RPUSH s.KEYS.STEAM_APP_IDS, app.appid
-
-      console.log "Start grabbing from Steam"
-      s._grab_data_from_steam()
+        id_list.push app.appid
+      s._grab_data_from_steam id_list
 
   #Get a list of app from Steam
   #If Refresh key is still there (not expired) and there is a APPLIST_RAW, do not refresh
-  _get_app_list: ()->
+  _get_app_list: (opt = {retrieve_app_list: false}, callback)->
     s = this
     s.redis_client.GET s.KEYS.STEAM_APPLIST_REFRESH, (err, steam_refresh) ->
-      s.redis_client.GET s.KEYS.STEAM_APPLIST_RAW, (e, exists) ->
-        if steam_refresh && exists
-          s._read_app_list()
+      s.redis_client.GET s.KEYS.STEAM_APPLIST_RAW, (e, app_list_raw) ->
+        if steam_refresh && app_list_raw
+          if "function" == typeof(callback)
+            callback null, {
+              success: true
+              from_cache: true
+              app_list: if opt.retrieve_app_list then app_list_raw else null
+            }
         else
           s.unirest.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001/')
           .end (response) =>
-              s.redis_client.SET s.KEYS.STEAM_APPLIST_RAW, response.raw_body
-              s.redis_client.SET s.KEYS.STEAM_APPLIST_REFRESH, true
-              s.redis_client.EXPIRE s.KEYS.STEAM_APPLIST_REFRESH, s.opts.steam_app_cache_validity
-              s._read_app_list()
+            s.redis_client.SET s.KEYS.STEAM_APPLIST_RAW, response.raw_body
+            s.redis_client.SET s.KEYS.STEAM_APPLIST_REFRESH, true
+            s.redis_client.EXPIRE s.KEYS.STEAM_APPLIST_REFRESH, s.opts.steam_app_cache_validity
+            if "function" == typeof(callback)
+              callback null, {
+                success: true
+                from_cache: false
+                app_list: if opt.retrieve_app_list then response.raw_body else null
+              }
+
+  _get_new_apps: (callback)->
+    s = this
+    s._get_app_list({retrieve_app_list: true}, (err, e)->
+      if e.app_list
+        s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).find({}, {_id: 1}).toArray (err, details)->
+          if err
+            if "function" == typeof(callback)
+              callback(err, null)
+          else
+            a_id = {}
+            steamapps = JSON.parse e.app_list
+            for app in steamapps.applist.apps.app
+              a_id[parseInt(app.appid)] = true
+
+            for existing_app in details
+              delete a_id[existing_app._id]
+
+            new_app_list = Object.keys(a_id)
+
+            if new_app_list.length
+              console.log "Missing",new_app_list.length,"apps"
+            else
+              console.log "No new app"
+
+            new_app_list = []
+            if "function" == typeof(callback)
+              callback(null, {success: new_app_list.length > 0, new_app_list: new_app_list})
+      else
+        if "function" == typeof(callback)
+          callback("No app list found", null)
+    )

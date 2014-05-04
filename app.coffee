@@ -5,7 +5,6 @@ http = require('http')
 path = require('path')
 app = express()
 config = require('./config')
-
 # all environments
 
 steam = require('./steam')(
@@ -36,6 +35,7 @@ app.use(express.methodOverride())
 app.use(express.cookieParser('your secret here'))
 app.use(express.session())
 app.use(app.router)
+
 app.use(require('stylus').middleware(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -49,6 +49,7 @@ app.get('/steam/user_owned_games', steam_route.user_owned_games)
 app.get('/steam/get/:id', steam_route.get)
 app.get('/steam/get', steam_route.get)
 app.get('/steam/force_reset', steam_route.force_reset)
+app.get('/steam/get_missing_apps', steam_route.get_missing_apps)
 
 http.createServer(app).listen app.get('port'), () ->
   console.log 'Express server listening on port ' + app.get('port')

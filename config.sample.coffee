@@ -26,6 +26,6 @@ config.steam_app_cache_validity= 3600
 # How long redis should cache user query
 config.steam_user_app_cache_validity= 600
 # How many steam app to query in one AJAX call to Steam
-config.n_of_app_in_query_batch= 250
+config.n_of_app_in_query_batch= 500
 
 module.exports = config;

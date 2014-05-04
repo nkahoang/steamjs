@@ -146,6 +146,9 @@
                       return s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).find({
                         _id: {
                           $in: app_ids
+                        },
+                        success: {
+                          $in: [null, true]
                         }
                       }, {
                         name: 1,
@@ -234,82 +237,163 @@
       return _results;
     };
 
-    SteamClient.prototype._grab_data_from_steam = function() {
-      var s;
+    SteamClient.prototype._grab_data_from_steam = function(app_list) {
+      var batch, i, s, _query;
       s = this;
-      return s.redis_client.LRANGE(s.KEYS.STEAM_APP_IDS, 0, -1, function(e, app_list) {
-        var batch, i, _results;
-        batch = s.opts.n_of_app_in_query_batch;
-        i = 0;
-        _results = [];
-        while (i <= app_list.length) {
-          s.unirest.get("http://store.steampowered.com/api/appdetails/").query({
-            appids: app_list.slice(i, +(i + batch - 1) + 1 || 9e9).toString()
-          }).end((function(_this) {
-            return function(response) {
-              var app_id, id, item, sdata, _results1;
-              sdata = response.body;
-              _results1 = [];
-              for (app_id in sdata) {
-                item = sdata[app_id];
-                if (item.success && item.data) {
-                  id = parseInt(app_id);
-                  item.data._id = id;
-                  _results1.push(s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update({
-                    _id: parseInt(id)
-                  }, item.data, {
-                    upsert: true
-                  }, function(err, count) {
-                    return null;
-                  }));
-                } else {
-                  _results1.push(void 0);
-                }
+      batch = s.opts.n_of_app_in_query_batch;
+      i = 0;
+      console.log("Querying", app_list.length, "apps");
+      _query = function() {
+        console.log("Querying steam from ", i, " to ", i + batch - 1);
+        return s.unirest.get("http://store.steampowered.com/api/appdetails/").query({
+          appids: app_list.slice(i, +(i + batch - 1) + 1 || 9e9).toString()
+        }).end((function(_this) {
+          return function(response) {
+            var app_id, id, item, sdata, _results;
+            console.log("Done querying");
+            i += batch;
+            if (i <= app_list.length) {
+              _query();
+            } else {
+              console.log("Finish grabbing data");
+            }
+            sdata = response.body;
+            _results = [];
+            for (app_id in sdata) {
+              item = sdata[app_id];
+              if (item.success) {
+                id = parseInt(app_id);
+                item.data._id = id;
+                item.data.success = true;
+                _results.push(s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update({
+                  _id: parseInt(id)
+                }, item.data, {
+                  upsert: true
+                }, function(err, count) {
+                  return null;
+                }));
+              } else {
+                _results.push(s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).update({
+                  _id: parseInt(id)
+                }, {
+                  _id: parseInt(app_id),
+                  success: false
+                }, {
+                  upsert: true
+                }, function(err, count) {
+                  return null;
+                }));
               }
-              return _results1;
-            };
-          })(this));
-          _results.push(i += batch);
-        }
-        return _results;
-      });
+            }
+            return _results;
+          };
+        })(this));
+      };
+      return _query();
     };
 
-    SteamClient.prototype._read_app_list = function() {
+    SteamClient.prototype._read_from_redis_list = function() {
       var s;
       s = this;
       return s.redis_client.GET(s.KEYS.STEAM_APPLIST_RAW, function(e, app_list_raw) {
-        var app, steam_apps, _i, _len, _ref;
+        var app, id_list, steam_apps, _i, _len, _ref;
         s.redis_client.DEL(s.KEYS.STEAM_APP_IDS);
         steam_apps = JSON.parse(app_list_raw);
+        id_list = [];
         _ref = steam_apps.applist.apps.app;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           app = _ref[_i];
-          s.redis_client.RPUSH(s.KEYS.STEAM_APP_IDS, app.appid);
+          id_list.push(app.appid);
         }
-        console.log("Start grabbing from Steam");
-        return s._grab_data_from_steam();
+        return s._grab_data_from_steam(id_list);
       });
     };
 
-    SteamClient.prototype._get_app_list = function() {
+    SteamClient.prototype._get_app_list = function(opt, callback) {
       var s;
+      if (opt == null) {
+        opt = {
+          retrieve_app_list: false
+        };
+      }
       s = this;
       return s.redis_client.GET(s.KEYS.STEAM_APPLIST_REFRESH, function(err, steam_refresh) {
-        return s.redis_client.GET(s.KEYS.STEAM_APPLIST_RAW, function(e, exists) {
-          if (steam_refresh && exists) {
-            return s._read_app_list();
+        return s.redis_client.GET(s.KEYS.STEAM_APPLIST_RAW, function(e, app_list_raw) {
+          if (steam_refresh && app_list_raw) {
+            if ("function" === typeof callback) {
+              return callback(null, {
+                success: true,
+                from_cache: true,
+                app_list: opt.retrieve_app_list ? app_list_raw : null
+              });
+            }
           } else {
             return s.unirest.get('http://api.steampowered.com/ISteamApps/GetAppList/v0001/').end((function(_this) {
               return function(response) {
                 s.redis_client.SET(s.KEYS.STEAM_APPLIST_RAW, response.raw_body);
                 s.redis_client.SET(s.KEYS.STEAM_APPLIST_REFRESH, true);
                 s.redis_client.EXPIRE(s.KEYS.STEAM_APPLIST_REFRESH, s.opts.steam_app_cache_validity);
-                return s._read_app_list();
+                if ("function" === typeof callback) {
+                  return callback(null, {
+                    success: true,
+                    from_cache: false,
+                    app_list: opt.retrieve_app_list ? response.raw_body : null
+                  });
+                }
               };
             })(this));
           }
         });
+      });
+    };
+
+    SteamClient.prototype._get_new_apps = function(callback) {
+      var s;
+      s = this;
+      return s._get_app_list({
+        retrieve_app_list: true
+      }, function(err, e) {
+        if (e.app_list) {
+          return s.mongo_db.collection(s.KEYS.MDB_STEAM_APPS).find({}, {
+            _id: 1
+          }).toArray(function(err, details) {
+            var a_id, app, existing_app, new_app_list, steamapps, _i, _j, _len, _len1, _ref;
+            if (err) {
+              if ("function" === typeof callback) {
+                return callback(err, null);
+              }
+            } else {
+              a_id = {};
+              steamapps = JSON.parse(e.app_list);
+              _ref = steamapps.applist.apps.app;
+              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                app = _ref[_i];
+                a_id[parseInt(app.appid)] = true;
+              }
+              for (_j = 0, _len1 = details.length; _j < _len1; _j++) {
+                existing_app = details[_j];
+                delete a_id[existing_app._id];
+              }
+              new_app_list = Object.keys(a_id);
+              if (new_app_list.length) {
+                console.log("Missing", new_app_list.length, "apps");
+              } else {
+                console.log("No new app");
+              }
+              new_app_list = [];
+              if ("function" === typeof callback) {
+                return callback(null, {
+                  success: new_app_list.length > 0,
+                  new_app_list: new_app_list
+                });
+              }
+            }
+          });
+        } else {
+          if ("function" === typeof callback) {
+            return callback("No app list found", null);
+          }
+        }
       });
     };
 
@@ -318,3 +402,5 @@
   })();
 
 }).call(this);
+
+//# sourceMappingURL=index.map

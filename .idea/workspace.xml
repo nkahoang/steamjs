@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49ddc5d8-703f-4c10-9fc7-2a0ade6e80b9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.coffee" afterPath="$PROJECT_DIR$/app.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.sample.coffee" afterPath="$PROJECT_DIR$/config.sample.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.sample.js" afterPath="$PROJECT_DIR$/config.sample.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/steam/index.coffee" afterPath="$PROJECT_DIR$/steam/index.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/steam/index.js" afterPath="$PROJECT_DIR$/steam/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/steam.coffee" afterPath="$PROJECT_DIR$/routes/steam.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/steam.js" afterPath="$PROJECT_DIR$/routes/steam.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="steam_node.iws" />
@@ -26,55 +36,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.coffee">
+      <file leaf-file-name="index.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/steam/index.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="19" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="972">
+            <state line="268" column="13" selection-start="10339" selection-end="10339" vertical-scroll-proportion="0.0" vertical-offset="6826" max-vertical-offset="7695">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.jade" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/layout.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="8" selection-start="681" selection-end="681" vertical-scroll-proportion="0.24251497" vertical-offset="270" max-vertical-offset="783">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="125" selection-start="250" selection-end="250" vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="324">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.sample.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.sample.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="17" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
+            <state line="1" column="8" selection-start="21" selection-end="21" vertical-scroll-proportion="0.07258064" vertical-offset="0" max-vertical-offset="372">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Procfile">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/redis/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
+            <state line="574" column="0" selection-start="18390" selection-end="18390" vertical-scroll-proportion="0.0" vertical-offset="15330" max-vertical-offset="32643">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="steam.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/steam.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1188">
               <folding />
             </state>
           </provider>
@@ -83,19 +75,8 @@
       <file leaf-file-name="app.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="1620">
+            <state line="23" column="39" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="1620">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/steam/index.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="95" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6372">
-              <folding>
-                <marker date="1398556742672" expanded="true" signature="437:702" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -116,20 +97,20 @@
         <option value="$PROJECT_DIR$/routes/index.coffee" />
         <option value="$PROJECT_DIR$/steam/client.coffee" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/routes/steam.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/steam.coffee" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/public/javascripts/main.coffee" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.styl" />
-        <option value="$PROJECT_DIR$/steam/index.coffee" />
-        <option value="$PROJECT_DIR$/config.sample.coffee" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/config.coffee" />
-        <option value="$PROJECT_DIR$/app.coffee" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
+        <option value="$PROJECT_DIR$/routes/steam.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app.coffee" />
+        <option value="$PROJECT_DIR$/routes/steam.coffee" />
+        <option value="$PROJECT_DIR$/config.sample.coffee" />
+        <option value="$PROJECT_DIR$/steam/index.coffee" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -166,6 +147,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,19 +176,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="app.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="steam_node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/nodejs/node.exe" />
     <property name="options.lastSelected" value="settings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -214,6 +263,7 @@
     <property name="SearchEverywhereHistory" value="_T" />
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntriesCoffeeScript" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -225,9 +275,13 @@
       <recent name="C:\w\steam_node\public" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.app.js">
+  <component name="RunManager" selected="Node.js.app.coffee">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug">
+      <node-js-remote-debug />
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -243,8 +297,26 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="false" name="app.coffee" type="NodeJSConfigurationType" factoryName="Node.js" singleton="true" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" coffeescript-path="C:\Users\nkahoang\AppData\Roaming\npm\coffee">
+      <envs>
+        <env name="MONGO_DB_HOST" value="steamjsnode:m0ng0SteamJS1206@ds037478.mongolab.com:37478" />
+        <env name="STEAM_WEB_API_DOMAIN" value="nkahnt.com" />
+        <env name="REDIS_PORT" value="6379" />
+        <env name="REDIS_HOST" value="192.168.1.123" />
+        <env name="MONGO_DB_NAME" value="steamdb" />
+        <env name="REDIS_PASSWORD" value="" />
+        <env name="STEAM_WEB_API_KEY" value="F2AB1C25BD33F9E4E3F743E05490CE7C" />
+      </envs>
+      <browser start="false" url="" with-js-debugger="false" />
+      <RunnerSettings RunnerId="NodeJS.debug" />
+      <RunnerSettings RunnerId="NodeJS.run" />
+      <ConfigurationWrapper RunnerId="NodeJS.debug" />
+      <ConfigurationWrapper RunnerId="NodeJS.run" />
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Node.js.app.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.app.coffee" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -279,23 +351,23 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5604396" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18051118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53956044" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10989011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18530351" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37252748" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -312,24 +384,20 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.coffee</url>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="18" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/steam/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="0" selection-start="4651" selection-end="4651" vertical-scroll-proportion="0.0" vertical-offset="3267" max-vertical-offset="6102" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/steam/index.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="16" selection-start="2131" selection-end="2131" vertical-scroll-proportion="0.0" vertical-offset="3347" max-vertical-offset="4239" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/steam.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="24" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="972" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="32" selection-start="1722" selection-end="1722" vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="1728" />
@@ -460,11 +528,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="0" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="351" />
@@ -475,24 +538,9 @@
         <state line="2" column="16" selection-start="0" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="216" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/steam.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1431" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/steam/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="0" selection-start="9774" selection-end="9774" vertical-scroll-proportion="0.0" vertical-offset="7074" max-vertical-offset="7803" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/redis/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1364" column="6" selection-start="49450" selection-end="49450" vertical-scroll-proportion="0.33256617" vertical-offset="36539" max-vertical-offset="60399" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="324" selection-end="324" vertical-scroll-proportion="0.48979592" vertical-offset="0" max-vertical-offset="2349" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/main.js">
@@ -500,60 +548,29 @@
         <state line="34" column="9" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1647" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/steam.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="3" selection-start="575" selection-end="575" vertical-scroll-proportion="1.8601824" vertical-offset="9" max-vertical-offset="891" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.cyborg.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="71" selection-start="71" selection-end="71" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="324" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2403">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="351" selection-end="351" vertical-scroll-proportion="0.03967328" vertical-offset="344" max-vertical-offset="2781">
-          <folding />
-        </state>
+        <state line="14" column="13" selection-start="351" selection-end="351" vertical-scroll-proportion="0.03967328" vertical-offset="344" max-vertical-offset="2781" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/main.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="41" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3699">
-          <folding>
-            <marker date="1398520224677" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="38" column="41" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3699" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="2" selection-end="2" vertical-scroll-proportion="0.031914894" vertical-offset="0" max-vertical-offset="846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/steam/index.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="95" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6372">
-          <folding>
-            <marker date="1398556742672" expanded="true" signature="437:702" placeholder="..." />
-          </folding>
-        </state>
+        <state line="1" column="0" selection-start="2" selection-end="2" vertical-scroll-proportion="0.031914894" vertical-offset="0" max-vertical-offset="846" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="125" selection-start="250" selection-end="250" vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="324">
-          <folding />
-        </state>
+        <state line="5" column="125" selection-start="250" selection-end="250" vertical-scroll-proportion="0.15995261" vertical-offset="0" max-vertical-offset="844" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.coffee">
@@ -563,37 +580,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.sample.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="17" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="453">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="329">
-          <folding />
-        </state>
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="329" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.coffee">
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="1620">
+        <state line="8" column="12" selection-start="213" selection-end="213" vertical-scroll-proportion="0.25592417" vertical-offset="0" max-vertical-offset="2403">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="681" selection-end="681" vertical-scroll-proportion="0.24251497" vertical-offset="270" max-vertical-offset="783">
+        <state line="12" column="4" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="783">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="2283" selection-end="2283" vertical-scroll-proportion="0.7016575" vertical-offset="1887" max-vertical-offset="2430">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/session/memory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="22" selection-start="584" selection-end="584" vertical-scroll-proportion="0.33204633" vertical-offset="854" max-vertical-offset="3645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="14" selection-start="0" selection-end="178" vertical-scroll-proportion="0.4169884" vertical-offset="0" max-vertical-offset="518">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/steam.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="9" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.0" vertical-offset="1124" max-vertical-offset="1674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="2" selection-start="3782" selection-end="3782" vertical-scroll-proportion="0.33204633" vertical-offset="4499" max-vertical-offset="8829">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/redis/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="574" column="0" selection-start="18390" selection-end="18390" vertical-scroll-proportion="0.0" vertical-offset="15330" max-vertical-offset="32643">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.sample.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="397" selection-end="397" vertical-scroll-proportion="0.23469388" vertical-offset="90" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="39" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="1620">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/steam/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="277" column="8" selection-start="10594" selection-end="10594" vertical-scroll-proportion="1.745541" vertical-offset="6011" max-vertical-offset="10530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/steam.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/steam/index.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="268" column="13" selection-start="10339" selection-end="10339" vertical-scroll-proportion="0.0" vertical-offset="6826" max-vertical-offset="7695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="8" selection-start="21" selection-end="21" vertical-scroll-proportion="0.07258064" vertical-offset="0" max-vertical-offset="372">
           <folding />
         </state>
       </provider>
